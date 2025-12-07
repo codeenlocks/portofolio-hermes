@@ -1,0 +1,478 @@
+/* style.css */
+
+/* --- 1. DÉFINITION DES VARIABLES DE COULEURS ET DE STYLE --- */
+:root {
+    /* Couleurs Vives (Triadique) */
+    --clr-primaire: #11bdb4; /* Turquoise - Accent principal */
+    --clr-secondaire: #bd11bc; /* Magenta - Boutons/Liens/Interactivité */
+    --clr-tertiaire: #bdbe11; /* Vert-Jaune - Survol/Éléments spéciaux */
+
+    /* Couleurs Neutres */
+    --clr-fond: #f8f8f8; /* Arrière-plan (Gris clair) */
+    --clr-texte-principal: #333333;
+    --clr-texte-secondaire: #777777;
+
+    /* Tailles de police */
+    --font-xl: 3rem;
+    --font-lg: 1.8rem;
+    --font-md: 1.2rem;
+    --font-sm: 1rem;
+}
+
+/* --- 2. STYLE GLOBAL ET BASE --- */
+* {
+    box-sizing: border-box;
+}
+
+.gras {
+    font-weight: bold;
+}
+
+body {
+    /* FIX CRUCIAL: Retire le fond du body pour laisser l'animation fixed être visible */
+    background-color: transparent; 
+    font-family: 'Roboto', sans-serif;
+    color: var(--clr-texte-principal);
+    margin: 0;
+    padding-top: 60px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; 
+}
+
+/* Styles pour les titres */
+h1 {
+    font-size: var(--font-xl);
+    color: var(--clr-primaire);
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: var(--font-lg);
+    color: var(--clr-texte-principal);
+    border-bottom: 3px solid var(--clr-primaire);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Padding générique pour les sections */
+.section-padding {
+    padding: 80px 10%;
+    min-height: 50vh;
+}
+
+/* --- 3. NAVIGATION (NAVBAR) --- */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: var(--font-md);
+    font-weight: bold;
+    color: var(--clr-primaire);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--clr-texte-principal);
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--clr-secondaire);
+    border-bottom: 2px solid var(--clr-secondaire);
+}
+
+/* --- 4. HEADER (HERO SECTION) --- */
+.hero-section {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: transparent; /* Laisse le fond particles.js visible */
+    padding: 40px 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.header-content {
+    max-width: 800px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--clr-primaire);
+    margin-bottom: 20px;
+}
+
+.slogan {
+    font-size: var(--font-md);
+    color: var(--clr-texte-principal);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* --- 5. BOUTONS --- */
+.cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bouton-primaire {
+    background-color: var(--clr-secondaire);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.bouton-primaire:hover {
+    background-color: var(--clr-tertiaire);
+    transform: translateY(-2px);
+}
+
+.bouton-secondaire {
+    background-color: transparent;
+    color: var(--clr-tertiaire);
+    border: 2px solid var(--clr-tertiaire);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+
+
+.bouton-secondaire:hover {
+    background-color: var(--clr-tertiaire);
+    color: var(--clr-texte-principal);
+    transform: translateY(-2px);
+}
+/* ... dans style.css (section 5. Boutons) ... */
+
+/* Permet au bouton seul de prendre toute la largeur de son conteneur */
+.project-btn.full-width-btn {
+    flex-grow: initial; /* Réinitialiser la croissance */
+    width: 100%;
+}
+
+/* Ajustement de la grille pour le cas d'un seul bouton */
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+/* ... dans style.css (section 6) ... */
+
+/* Ancien .skills-grid (à retirer ou commenter) */
+/*
+.skills-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+*/
+
+/* NOUVELLE GRILLE DE COMPÉTENCES */
+.skills-grid-new {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background-color: white; /* Fond blanc pour les cartes */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--clr-primaire);
+    position: relative;
+    z-index: 1;
+}
+
+.skill-category h3 {
+    color: var(--clr-secondaire); /* Magenta pour les titres de catégorie */
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: var(--font-md);
+}
+
+.skill-category i {
+    margin-right: 10px;
+}
+
+/* --- Styles des Barres de Progression --- */
+
+.skill-item {
+    margin-bottom: 25px;
+}
+
+.skill-item p {
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--clr-primaire); /* Couleur Turquoise */
+    color: white;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 0.85rem;
+    line-height: 20px;
+    transition: width 1.5s ease-out; /* Animation à l'arrivée sur la page */
+    animation: fill-bar 1.5s forwards;
+}
+
+/* Animation pour remplir la barre */
+@keyframes fill-bar {
+    0% { width: 0; }
+}
+
+/* Styles pour les autres compétences et les tags */
+.other-skills {
+    font-size: var(--font-sm);
+    color: var(--clr-texte-secondaire);
+    margin-top: 15px;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+}
+
+.tag-group {
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE pour la grille de compétences */
+@media (max-width: 992px) {
+    .skills-grid-new {
+        grid-template-columns: 1fr; /* Passage à une seule colonne sur les tablettes et mobiles */
+    }
+}
+
+/* ... dans style.css (Section 6) ... */
+
+/* Ancien .project-card (à supprimer ou commenter si vous en aviez un) */
+/*
+.project-card {
+    margin-top: 20px;
+}
+*/
+
+/* NOUVELLE GRILLE DE PROJETS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 colonnes par défaut, adaptatif */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--clr-secondaire); /* Bordure Magenta */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Effet de soulèvement au survol */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-icon {
+    font-size: 2rem;
+    color: var(--clr-primaire); /* Turquoise */
+    margin-right: 15px;
+}
+
+.project-card h3 {
+    margin: 0;
+    color: var(--clr-texte-principal);
+}
+
+.project-card p {
+    color: var(--clr-texte-secondaire);
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    margin-bottom: 20px;
+}
+
+.tag.role {
+    background-color: var(--clr-primaire);
+    color: white;
+}
+
+/* --- Styles des Boutons de Projet (CTAs) --- */
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.project-btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    flex-grow: 1; /* Rendre les boutons flexibles */
+    text-align: center;
+}
+
+.project-btn i {
+    margin-right: 5px;
+}
+
+/* Bouton Primaire (Voir le live/code principal) - Magenta */
+.project-btn.primary-btn {
+    background-color: var(--clr-secondaire);
+    color: white;
+    border: 2px solid var(--clr-secondaire);
+}
+
+.project-btn.primary-btn:hover {
+    background-color: var(--clr-tertiaire); /* Survol en Vert-Jaune */
+    border-color: var(--clr-tertiaire);
+    transform: translateY(-2px);
+}
+
+/* Bouton Secondaire (Code/Live secondaire) - Turquoise */
+.project-btn.secondary-btn {
+    background-color: transparent;
+    color: var(--clr-primaire);
+    border: 2px solid var(--clr-primaire);
+}
+
+.project-btn.secondary-btn:hover {
+    background-color: var(--clr-primaire);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ... (Fin de style.css) ... */
+
+@media (max-width: 768px) {
+    /* ... vos autres styles responsive ... */
+    
+    .project-actions {
+        flex-direction: column; /* Boutons en colonne sur mobile */
+    }
+}
+
+/* --- 7. FOOTER & CONTACT --- */
+footer {
+    text-align: center;
+    padding: 20px 10%;
+    background-color: var(--clr-texte-principal);
+    color: var(--clr-fond);
+    font-size: var(--font-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-links a {
+    display: block;
+    margin: 10px 0;
+    font-size: var(--font-md);
+    color: var(--clr-secondaire);
+}
+
+.contact-links a:hover {
+    color: var(--clr-primaire);
+}
+
+.contact-links i {
+    margin-right: 10px;
+}
+
+/* --- 8. EFFET DE FOND DE PARTICULES (PARTICLES.JS) --- */
+
+#particles-js {
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-fond); /* Le fond de l'écran principal */
+    z-index: -2; /* Très bas pour être derrière tout le contenu */
+}
+
+/* RESPONSIVE de base */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    #navbar {
+        justify-content: center;
+    }
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-padding {
+        padding: 40px 5%;
+    }
+    .cta-buttons {
+        flex-direction: column; /* Les boutons passent en colonne sur mobile */
+        gap: 10px;
+    }
+}
